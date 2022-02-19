@@ -9,6 +9,4 @@ import java.util.List;
 public interface EmoloyeeRepository extends JpaRepository<Employee,Long> {
 
     List<Employee> findByName(String name);
-
-
 }
