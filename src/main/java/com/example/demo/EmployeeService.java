@@ -23,4 +23,7 @@ public class EmployeeService {
     public List<Employee> findByName(String name){
         return emoloyeeRepository.findByName(name);
     }
+    public List<Employee> findByNameAndLastName(String name,String lastName){
+        return emoloyeeRepository.findByNameAndLastName(name, lastName);
+    }
 }

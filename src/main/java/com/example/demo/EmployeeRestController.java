@@ -31,4 +31,10 @@ public class EmployeeRestController {
         List<Employee> getAll = employeeService.findByName(name);
         return ResponseEntity.ok(getAll);
     }
+    @GetMapping("/employee/{name}/{lastName}")
+    public ResponseEntity findByNameAndLastName(@PathVariable String name,
+                                                @PathVariable String lastName) {
+        List<Employee> getAll = employeeService.findByNameAndLastName(name,lastName);
+        return ResponseEntity.ok(getAll);
+    }
 }
