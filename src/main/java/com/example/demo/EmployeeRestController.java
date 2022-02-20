@@ -47,5 +47,9 @@ public class EmployeeRestController {
         List<Employee> findByNameEndingWith=employeeService.findByNameEndingWith(name);
         return ResponseEntity.ok(findByNameEndingWith);
     }
-
+    @DeleteMapping("/employees2/{id}")
+    public ResponseEntity delete1(@PathVariable Long id){
+        employeeService.delete1(id);
+        return ResponseEntity.ok(id+" ma'lumot o'chirildi");
+    }
 }
