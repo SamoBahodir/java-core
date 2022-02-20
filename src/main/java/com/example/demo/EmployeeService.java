@@ -26,4 +26,13 @@ public class EmployeeService {
     public List<Employee> findByNameAndLastName(String name,String lastName){
         return emoloyeeRepository.findByNameAndLastName(name, lastName);
     }
+    public List<Employee> findByNameStartsWith(String name){
+        return emoloyeeRepository.findByNameStartsWith(name);
+    }
+    public List<Employee> findByNameEndingWith(String name){
+        return emoloyeeRepository.findByNameEndingWith(name);
+    }
+
+
+
 }

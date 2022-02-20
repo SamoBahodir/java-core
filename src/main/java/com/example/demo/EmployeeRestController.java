@@ -37,4 +37,15 @@ public class EmployeeRestController {
         List<Employee> getAll = employeeService.findByNameAndLastName(name,lastName);
         return ResponseEntity.ok(getAll);
     }
+    @GetMapping("/employees1/{name}")
+    public ResponseEntity findByNameStartsWith(@PathVariable String name) {
+        List<Employee> getAll = employeeService.findByNameStartsWith(name);
+        return ResponseEntity.ok(getAll);
+    }
+    @GetMapping("/employees2/{name}")
+    public ResponseEntity findByNameEndingWith(@PathVariable String name){
+        List<Employee> findByNameEndingWith=employeeService.findByNameEndingWith(name);
+        return ResponseEntity.ok(findByNameEndingWith);
+    }
+
 }
