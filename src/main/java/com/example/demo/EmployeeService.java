@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -40,8 +41,21 @@ public class EmployeeService {
         return emoloyeeRepository.findByNameEndingWith(name);
     }
 
-    public void delete1(Long id){
-        Employee employee=emoloyeeRepository.getById(id);
-         emoloyeeRepository.delete(employee);
+    public void delete1(Long id) {
+        Employee employee = emoloyeeRepository.getById(id);
+        emoloyeeRepository.delete(employee);
     }
+
+    public List<Employee> between(Long start, Long end) {
+        return emoloyeeRepository.findByIdBetween(start, end);
+    }
+
+    @Scheduled(fixedRate = 5000L)
+    public Employee saveCron() {
+        Employee employee = new Employee();
+        employee.setName("Mannob");
+        employee.setLastName("Mannobov");
+        return emoloyeeRepository.save(employee);
+    }
+
 }
