@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -39,6 +40,7 @@ public class EmployeeRestController {
         return ResponseEntity.ok(getAll);
     }
 
+    @Scheduled(fixedRate = 3000)
     @GetMapping("/employees1/{name}")
     public ResponseEntity findByNameStartsWith(@PathVariable String name) {
         List<Employee> getAll = employeeService.findByNameStartsWith(name);
