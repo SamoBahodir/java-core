@@ -43,28 +43,26 @@ public class CalculatorUtil {
                                              double insuranceCosts,
                                              double notaryExpenses,
                                              double anotherExpenses) {
-        double balanse1 = balance*percentage/moon*Math.pow(1+percentage/moon,moon);
-        int i=0;
+        double i = percentage / moon / 100;
+        double d = i * Math.pow(1 + i, moon);
+        double d1 = Math.pow(1 + i, moon) - 1;
+        double m = balance * d / d1;
         List<CalculatorResponse> responses = new ArrayList<>();
-        while (balance > 0) {
+        for (int j = 0; j < moon; j++) {
             CalculatorResponse response = new CalculatorResponse();
-            double p=balance*percentage/1000;
-            response.setTotalMonthlyPayment(balanse1);
-            response.setBalance(balance-p);
-            response.setMoon(i++);
+            double percentage1 = balance * percentage / 1000;
+            response.setBalance(balance);
+            double a = (m - percentage1);
+            response.setPrincipalDebt(Math.round(a/1.00));
+            response.setPercentage(percentage1);
+            response.setTotalMonthlyPayment(m);
+            response.setAnotherExpenses(anotherExpenses);
+            response.setCommissionFee(notaryExpenses);
+            response.setPersonalExpenses(insuranceCosts);
+            response.setMoon(j + 1);
+            balance = balance - (m - percentage1);
             responses.add(response);
         }
         return responses;
-    }
-
-    public double sum(double balance, double percentage, double moon) {
-        double i = percentage / 100 / moon;
-        System.out.println(i);
-        double d1 = i * Math.pow(1 + i, moon);
-        System.out.println(d1);
-        double d2 = Math.pow(1 + i, moon) - 1;
-        System.out.println(d2);
-        System.out.println(balance * d1 / d2);
-        return balance * d1 / d2;
     }
 }
