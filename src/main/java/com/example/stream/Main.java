@@ -1,4 +1,4 @@
-package com.example.search.stream;
+package com.example.stream;
 
 import java.util.stream.Collectors;
 import java.util.stream.Stream;

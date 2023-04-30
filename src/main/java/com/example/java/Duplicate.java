@@ -13,7 +13,6 @@ public class Duplicate {
     private static <T>void genericMethode(T[] duplicate) {
 
         boolean isDuplicateFound = false;
-        int count = 1;
         StringBuilder builder = new StringBuilder();
         System.out.println(Arrays.toString(duplicate) + "\n");
         for (int i = 0; i < duplicate.length; i++) {
